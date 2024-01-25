@@ -1,16 +1,18 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+import requests
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+def create_user():
+    pixela_user_endpoint = 'https://pixe.la/v1/users'
+    user_params = {
+        "token": "adsfhaAHdf",
+        "username": "jreespuff",
+        "agreeTermsOfService": "yes",
+        "notMinor": "yes"
+    }
+
+    user_request = requests.post(pixela_user_endpoint, json=user_params)
+    print(user_request.text)
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('Jacob')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    create_user()
