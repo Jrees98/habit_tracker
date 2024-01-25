@@ -57,3 +57,4 @@ def post_to_graph():
 
 if __name__ == '__main__':
     post_to_graph()
+    pass
