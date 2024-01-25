@@ -1,5 +1,12 @@
 import requests
 import config
+from datetime import datetime
+
+current_datetime = datetime.now()
+
+formatted_date = current_datetime.strftime("%Y%m%d")
+
+
 
 USERNAME = "jreespuff"
 
@@ -37,6 +44,16 @@ def create_graph(graph_id, graph_name, units):
 def post_to_graph():
     pixela_post_endpoint = 'https://pixe.la/v1/users/jreespuff/graphs/graph1'
 
+    params = {
+        "date":formatted_date,
+        "quantity": "10",
+    }
+    header = {
+        "X-USER-TOKEN": config.token
+    }
+    post_request = requests.post(pixela_post_endpoint, json=params, headers=header)
+    print(post_request.text)
+
 
 if __name__ == '__main__':
-    create_graph()
+    post_to_graph()
